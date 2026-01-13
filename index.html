@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>제주여행 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Noto+Sans+KR:wght@300;400;500;700&family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: #fff;
+            color: #1a1a1a;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ========== 히어로 (F 에디토리얼) ========== */
+        .hero {
+            padding: 45px 30px 50px;
+            text-align: center;
+            background: #fff;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 280px;
+        }
+        
+        .hero .tangerine {
+            width: 36px;
+            height: 36px;
+            margin-bottom: 15px;
+        }
+        
+        .hero .occasion {
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
+            color: #ff6b35;
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+        
+        .hero .title {
+            font-size: 3.2rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 5px;
+        }
+        
+        .hero .title span {
+            color: #ff6b35;
+        }
+        
+        .hero .title-en {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        /* ========== 플로팅 위로가기 버튼 ========== */
+        .floating-top-btn {
+            position: fixed !important;
+            bottom: 30px !important;
+            right: 20px !important;
+            width: 50px;
+            height: 50px;
+            background: #ff6b35 !important;
+            border: none;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            z-index: 99999 !important;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        
+        .floating-top-btn:active {
+            transform: scale(0.95);
+        }
+        
+        .floating-top-btn svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        /* ========== 네비게이션 ========== */
+        .nav-container {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: #f5f5f5;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            padding: 12px 15px;
+            max-width: 500px;
+            margin: 0 auto;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .nav::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .nav-btn {
+            background: transparent;
+            border: 1.5px solid #e0e0e0;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #888;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+            font-family: inherit;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .nav-btn:hover {
+            border-color: #ff6b35;
+            color: #ff6b35;
+        }
+        
+        .nav-btn.active {
+            background: #ff6b35;
+            border-color: #ff6b35;
+            color: white;
+        }
+
+        /* ========== 메인 ========== */
+        .main-wrapper {
+            background: #f5f5f5;
+        }
+        
+        .main {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 30px 20px 80px;
+        }
+        
+        .tab-content {
+            display: block;
+            padding-top: 20px;
+        }
+        
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #1a1a1a;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-title .icon {
+            font-size: 1.5rem;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========== 일정 ========== */
+        .day-section {
+            margin-bottom: 45px;
+        }
+        
+        .day-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .day-num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            line-height: 1;
+            color: #ff6b35;
+        }
+        
+        .day-info h2 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        
+        .day-info p {
+            font-size: 0.75rem;
+            color: #999;
+        }
+
+        /* ========== 타임라인 ========== */
+        .timeline {
+            position: relative;
+            padding-left: 22px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 4px;
+            top: 6px;
+            bottom: 6px;
+            width: 1px;
+            background: #e0e0e0;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: -22px;
+            top: 7px;
+            width: 9px;
+            height: 9px;
+            background: #fff;
+            border: 2px solid #ff6b35;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-item.highlight .timeline-dot {
+            background: #ff6b35;
+        }
+        
+        .timeline-item.flow .timeline-dot {
+            width: 7px;
+            height: 7px;
+            left: -21px;
+            top: 8px;
+            border-color: #ddd;
+        }
+        
+        .timeline-card {
+            background: white;
+            border-radius: 12px;
+            padding: 14px 16px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+        
+        .timeline-card h3 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 3px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .timeline-card h3 .time {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #ff6b35;
+            background: #fff5f0;
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+        
+        .timeline-card h3 .time.flexible {
+            color: #999;
+            background: #f5f5f5;
+        }
+        
+        .timeline-card p {
+            font-size: 0.75rem;
+            color: #888;
+        }
+        
+        .tag {
+            display: inline-block;
+            font-size: 0.6rem;
+            font-weight: 500;
+            padding: 2px 7px;
+            border-radius: 8px;
+            margin-top: 6px;
+            margin-right: 3px;
+        }
+        
+        .tag.travel { background: #e8f5e9; color: #2e7d32; }
+        .tag.food { background: #fff3e0; color: #e65100; }
+        .tag.activity { background: #e3f2fd; color: #1565c0; }
+        .tag.note { background: #f5f5f5; color: #666; }
+        .tag.warning { background: #ffebee; color: #c62828; }
+
+        /* ========== 숙소 ========== */
+        .accommodation-section {
+            margin-top: 35px;
+        }
+        
+        .accommodation-section h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .accommodation-card {
+            background: #1a1a1a;
+            color: white;
+            border-radius: 12px;
+            padding: 16px 18px;
+            margin-bottom: 8px;
+        }
+        
+        .accommodation-card.accent {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+        }
+        
+        .accommodation-card .date {
+            font-size: 0.65rem;
+            opacity: 0.5;
+            margin-bottom: 4px;
+        }
+        
+        .accommodation-card h4 {
+            font-size: 0.95rem;
+            margin-bottom: 2px;
+        }
+        
+        .accommodation-card p {
+            font-size: 0.75rem;
+            opacity: 0.7;
+        }
+
+        /* ========== 맛집 ========== */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 30px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .section-header:first-child {
+            margin-top: 0;
+        }
+        
+        .section-header h3 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        .section-header span {
+            font-size: 0.7rem;
+            color: #999;
+        }
+        
+        .restaurant-card {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .restaurant-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+        
+        .restaurant-menu {
+            font-size: 0.75rem;
+            color: #888;
+        }
+        
+        .restaurant-note {
+            font-size: 0.7rem;
+            color: #999;
+            background: #f8f8f8;
+            padding: 5px 8px;
+            border-radius: 6px;
+            margin-top: 6px;
+        }
+        
+        .restaurant-badge {
+            font-size: 0.55rem;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 10px;
+            white-space: nowrap;
+        }
+        
+        .restaurant-badge.original { background: #f0f0f0; color: #888; }
+        .restaurant-badge.hot { background: linear-gradient(135deg, #ff6b35, #ff8c42); color: white; }
+        .restaurant-badge.award { background: linear-gradient(135deg, #ffd700, #ffb300); color: #333; }
+        
+        .spot-icon.activity { background: #fff3e0; }
+
+        /* ========== 기념품 ========== */
+        .gift-card {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 8px;
+            border-left: 3px solid #ff6b35;
+        }
+        
+        .gift-category {
+            font-size: 0.6rem;
+            font-weight: 600;
+            color: #ff6b35;
+            margin-bottom: 5px;
+        }
+        
+        .gift-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        
+        .gift-details {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            font-size: 0.75rem;
+        }
+        
+        .gift-price {
+            color: #ff6b35;
+            font-weight: 600;
+        }
+        
+        .gift-location {
+            color: #999;
+        }
+        
+        .gift-tip {
+            font-size: 0.7rem;
+            background: #fffbeb;
+            padding: 6px 10px;
+            border-radius: 6px;
+            color: #92400e;
+            margin-top: 8px;
+        }
+
+        /* ========== 추천장소 ========== */
+        .spot-card {
+            background: white;
+            border-radius: 12px;
+            padding: 14px 15px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .spot-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        
+        .spot-icon.nature { background: #e8f5e9; }
+        .spot-icon.cafe { background: #fff8e1; }
+        .spot-icon.museum { background: #ede7f6; }
+        .spot-icon.beach { background: #e0f7fa; }
+        
+        .spot-info h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1px;
+        }
+        
+        .spot-info p {
+            font-size: 0.7rem;
+            color: #999;
+        }
+        
+        .spot-time {
+            font-size: 0.65rem;
+            font-weight: 500;
+            color: #1565c0;
+            background: #e3f2fd;
+            padding: 4px 8px;
+            border-radius: 8px;
+            margin-left: auto;
+        }
+
+        /* ========== 팁박스 ========== */
+        .tip-box {
+            background: #1a1a1a;
+            color: white;
+            border-radius: 12px;
+            padding: 18px;
+            margin-top: 25px;
+        }
+        
+        .tip-box h4 {
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+        
+        .tip-box li {
+            padding: 6px 0 6px 18px;
+            position: relative;
+            font-size: 0.75rem;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            list-style: none;
+        }
+        
+        .tip-box li:last-child {
+            border-bottom: none;
+        }
+        
+        .tip-box li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #ff6b35;
+        }
+
+        /* ========== 푸터 ========== */
+        .footer {
+            text-align: center;
+            padding: 35px 20px;
+            background: #1a1a1a;
+            color: white;
+        }
+        
+        .footer .tangerine {
+            width: 45px;
+            height: 45px;
+            margin-bottom: 12px;
+        }
+        
+        .footer p {
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
+        /* ========== 반응형 ========== */
+        @media (min-width: 768px) {
+            .hero {
+                padding: 60px 40px 50px;
+            }
+            
+            .hero .title {
+                font-size: 2.8rem;
+            }
+            
+            .hero .bottom-info {
+                gap: 50px;
+            }
+            
+            .main {
+                padding: 40px 30px 100px;
+            }
+        }
+
+        .tangerine-svg {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 히어로 -->
+    <section id="top" class="hero">
+        <svg class="tangerine tangerine-svg" viewBox="0 0 100 100" fill="none">
+            <circle cx="50" cy="55" r="40" fill="#FF8C42"/>
+            <ellipse cx="44" cy="50" rx="28" ry="22" fill="#FFB366" opacity="0.3"/>
+            <circle cx="38" cy="45" r="5" fill="#FFCC80" opacity="0.5"/>
+            <path d="M50 15 Q48 7 54 9 Q59 11 57 18" stroke="#558b2f" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <ellipse cx="56" cy="12" rx="10" ry="5" fill="#7cb342" transform="rotate(25 56 12)"/>
+        </svg>
+        <p class="occasion">엄마의 두 번째 서른을 축하해요!</p>
+        <h1 class="title">제주여행</h1>
+        <p class="title-en">01. 21 — 24 · 3박 4일</p>
+    </section>
+
+    <!-- 네비게이션 -->
+    <nav class="nav-container">
+        <div class="nav">
+            <a href="#schedule" class="nav-btn">일정</a>
+            <a href="#food" class="nav-btn">맛집</a>
+            <a href="#gift" class="nav-btn">기념품</a>
+            <a href="#spare" class="nav-btn">추천장소</a>
+        </div>
+    </nav>
+
+    <!-- 메인 -->
+    <div class="main-wrapper">
+    <main class="main">
+        
+        <!-- 일정 섹션 -->
+        <section id="schedule" class="tab-content">
+            <h2 class="section-title"><span class="icon">📅</span> 일정</h2>
+            
+            <!-- Day 1 -->
+            <section class="day-section">
+                <div class="day-header">
+                    <div class="day-num">21</div>
+                    <div class="day-info">
+                        <h2>제주 도착 & 중문</h2>
+                        <p>화요일 · 롯데리조트</p>
+                    </div>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item highlight">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <h3><span class="time">14:05</span> ✈️ 2명 도착</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item highlight">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <h3><span class="time">14:10</span> ✈️ 4명 도착</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <h3><span class="time">~15:00</span> 🚗 렌트카 픽업</h3>
+                            <p>5번 게이트 → 셔틀 → 렌트카</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <h3><span class="time">15:40</span> 🦫 모모쥬</h3>
+                            <p>카피바라</p>
+                            <span class="tag travel">40분</span>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item flow">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <h3><span class="time flexible">이후</span> 🛒 하나로마트</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item flow">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <h3><span class="time flexible">↓</span> 🏨 체크인</h3>
+                            <p>롯데리조트 아트빌라스</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <h3><span class="time">17:30</span> 🍽️ 저녁</h3>
+                            <p>제주미향 / 중문색달통갈치 / 중문정</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item flow">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <h3><span class="time flexible">저녁 후</span> ♨️ 탄산온천</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Day 2 -->
+            <section class="day-section">
+                <div class="day-header">
+                    <div class="day-num">22</div>
+                    <div class="day-info">
+                        <h2>가파도 & 마라도</h2>
+                        <p>수요일 · 휘닉스아일랜드</p>
+                    </div>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item highlight">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <h3><span class="time">08:00</span> 🚗 숙소 출발</h3>
+                            <p>마라도 정기여객선</p>
+                            <span class="tag warning">⚠️ 출항 40분전 도착</span>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item highlight">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <h3><span class="time">09:00</span> ⛴️ 가파도</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item highlight">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <h3><span class="time">11:20</span> ⛴️ 복귀</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <h3><span class="time">11:30</span> 🐬 노을해안로</h3>
+                            <p>돌고래 보기</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item flow">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <h3><span class="time flexible">이후</span> ☕ 카페인디55</h3>
+                            <p>돌고래 못보면 블루웨일</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item highlight">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <h3><span class="time">13:50</span> ⛴️ 마라도</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item highlight">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <h3><span class="time">15:50</span> ⛴️ 복귀</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <h3><span class="time">16:00</span> 🌺 동백포레스트</h3>
+                            <p>식물원 구경</p>
+                            <span class="tag activity">1시간</span>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <h3><span class="time">17:00</span> 🏨 휘닉스아일랜드</h3>
+                            <p>체크인</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item flow">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <h3><span class="time flexible">이후</span> ☕ 카페 (선택)</h3>
+                            <p>수마 / 성산해나</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item flow">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <h3><span class="time flexible">이후</span> 🌅 성산일출봉</h3>
+                            <p>구경</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item flow">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <h3><span class="time flexible">저녁</span> 🍽️ 저녁</h3>
+                            <p>고궁보말손칼국수 / 제주흑돼지품 / 부뚜막식당 / 랍씨네 / 떠돌이식객</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Day 3 -->
+            <section class="day-section">
+                <div class="day-header">
+                    <div class="day-num">23</div>
+                    <div class="day-info">
+                        <h2>섭지코지 & 우도</h2>
+                        <p>목요일 · 2명 귀국</p>
+                    </div>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item flow">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <h3><span class="time flexible">오전</span> 🌄 섭지코지 / 붉은오름</h3>
+                            <p>구경</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item flow">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <h3><span class="time flexible">이후</span> 🏝️ 우도</h3>
+                            <span class="tag warning">현장매표만</span>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item flow">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <h3><span class="time flexible">저녁</span> 🍽️ 저녁</h3>
+                            <p>코코마마 / 피크 제주</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item highlight">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <h3><span class="time">21:00</span> ✈️ 2명 귀국</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Day 4 -->
+            <section class="day-section">
+                <div class="day-header">
+                    <div class="day-num">24</div>
+                    <div class="day-info">
+                        <h2>귀국</h2>
+                        <p>금요일</p>
+                    </div>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <h3><span class="time">~13:00</span> 🚗 반납</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item highlight">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <h3><span class="time">13:30</span> ✈️ 4명 귀국</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 숙소 -->
+            <section class="accommodation-section">
+                <h3>숙소</h3>
+                <div class="accommodation-card">
+                    <p class="date">21일</p>
+                    <h4>롯데리조트 아트빌라스</h4>
+                    <p>📍 중문</p>
+                </div>
+                <div class="accommodation-card accent">
+                    <p class="date">22일</p>
+                    <h4>휘닉스아일랜드</h4>
+                    <p>📍 성산</p>
+                </div>
+            </section>
+        </section>
+        
+        <!-- 맛집 섹션 -->
+        <section id="food" class="tab-content">
+            <h2 class="section-title"><span class="icon">🍽️</span> 맛집</h2>
+            <div class="section-header">
+                <h3>21일 저녁</h3>
+                <span>중문 / 서귀포</span>
+            </div>
+            
+            <div class="restaurant-card">
+                <div class="restaurant-main">
+                    <div class="restaurant-name">제주미향</div>
+                    <div class="restaurant-menu">갈치조림, 전복죽</div>
+                </div>
+                <span class="restaurant-badge original">원래 일정</span>
+            </div>
+            
+            <div class="restaurant-card">
+                <div class="restaurant-main">
+                    <div class="restaurant-name">중문색달통갈치</div>
+                    <div class="restaurant-menu">통갈치구이 / 조림</div>
+                </div>
+                <span class="restaurant-badge original">원래 일정</span>
+            </div>
+            
+            <div class="restaurant-card">
+                <div class="restaurant-main">
+                    <div class="restaurant-name">색달식당</div>
+                    <div class="restaurant-menu">갈치조림, 흑돼지</div>
+                    <div class="restaurant-note">도민 인정 맛집, 중문관광단지 5분</div>
+                </div>
+                <span class="restaurant-badge hot">🔥 2025</span>
+            </div>
+            
+            <div class="restaurant-card">
+                <div class="restaurant-main">
+                    <div class="restaurant-name">고집돌우럭 중문점</div>
+                    <div class="restaurant-menu">우럭조림한상</div>
+                    <div class="restaurant-note">TV방송 출연, 해산물 정식</div>
+                </div>
+                <span class="restaurant-badge hot">🔥 2025</span>
+            </div>
+            
+            <div class="section-header">
+                <h3>22일 아침</h3>
+                <span>중문 → 운진항</span>
+            </div>
+            
+            <div class="restaurant-card">
+                <div class="restaurant-main">
+                    <div class="restaurant-name">가람돌솥밥</div>
+                    <div class="restaurant-menu">전복돌솥밥, 성게미역국</div>
+                    <div class="restaurant-note">08:00~ · 20년 전통, TV방송 출연</div>
+                </div>
+                <span class="restaurant-badge hot">🔥 2025</span>
+            </div>
+            
+            <div class="restaurant-card">
+                <div class="restaurant-main">
+                    <div class="restaurant-name">중문수두리보말칼국수</div>
+                    <div class="restaurant-menu">보말칼국수, 보말죽</div>
+                    <div class="restaurant-note">08:00~ · 톳 반죽 면발</div>
+                </div>
+                <span class="restaurant-badge hot">🔥 2025</span>
+            </div>
+            
+            <div class="section-header">
+                <h3>22일 저녁</h3>
+                <span>성산 / 표선</span>
+            </div>
+            
+            <div class="restaurant-card">
+                <div class="restaurant-main">
+                    <div class="restaurant-name">고궁보말손칼국수</div>
+                    <div class="restaurant-menu">보말칼국수</div>
+                </div>
+                <span class="restaurant-badge original">원래 일정</span>
+            </div>
+            
+            <div class="restaurant-card">
+                <div class="restaurant-main">
+                    <div class="restaurant-name">제주흑돼지품</div>
+                    <div class="restaurant-menu">흑돼지</div>
+                </div>
+                <span class="restaurant-badge original">원래 일정</span>
+            </div>
+            
+            <div class="restaurant-card">
+                <div class="restaurant-main">
+                    <div class="restaurant-name">오조해녀의집</div>
+                    <div class="restaurant-menu">전복죽</div>
+                    <div class="restaurant-note">성산일출봉 뷰, 경관 뛰어남</div>
+                </div>
+                <span class="restaurant-badge award">🏆 블루리본</span>
+            </div>
+            
+            <div class="restaurant-card">
+                <div class="restaurant-main">
+                    <div class="restaurant-name">표선칼국수</div>
+                    <div class="restaurant-menu">보말칼국수, 고기칼국수</div>
+                    <div class="restaurant-note">네이버 1위, 매생이보말전</div>
+                </div>
+                <span class="restaurant-badge hot">🔥 2025</span>
+            </div>
+            
+            <div class="restaurant-card">
+                <div class="restaurant-main">
+                    <div class="restaurant-name">돌집식당</div>
+                    <div class="restaurant-menu">간장게장, 갈치조림</div>
+                    <div class="restaurant-note">도민맛집, 연예인 다수 방문</div>
+                </div>
+                <span class="restaurant-badge hot">🔥 2025</span>
+            </div>
+            
+            <div class="section-header">
+                <h3>23일 저녁</h3>
+                <span>성산 / 우도</span>
+            </div>
+            
+            <div class="restaurant-card">
+                <div class="restaurant-main">
+                    <div class="restaurant-name">코코마마</div>
+                    <div class="restaurant-menu">브런치</div>
+                </div>
+                <span class="restaurant-badge original">원래 일정</span>
+            </div>
+            
+            <div class="restaurant-card">
+                <div class="restaurant-main">
+                    <div class="restaurant-name">피크 제주</div>
+                    <div class="restaurant-menu">양식</div>
+                </div>
+                <span class="restaurant-badge original">원래 일정</span>
+            </div>
+            
+            <div class="restaurant-card">
+                <div class="restaurant-main">
+                    <div class="restaurant-name">성산해촌</div>
+                    <div class="restaurant-menu">회, 갈치구이</div>
+                    <div class="restaurant-note">35년 전통, 현지인 사랑</div>
+                </div>
+                <span class="restaurant-badge hot">🔥 2025</span>
+            </div>
+            
+            <div class="restaurant-card">
+                <div class="restaurant-main">
+                    <div class="restaurant-name">전망좋은횟집</div>
+                    <div class="restaurant-menu">활어회, 흑돼지</div>
+                    <div class="restaurant-note">성산일출봉 오션뷰</div>
+                </div>
+                <span class="restaurant-badge hot">🔥 2025</span>
+            </div>
+            
+            <div class="section-header">
+                <h3>카페</h3>
+                <span>추천</span>
+            </div>
+            
+            <div class="restaurant-card">
+                <div class="restaurant-main">
+                    <div class="restaurant-name">카페 바다다</div>
+                    <div class="restaurant-menu">중문 · 커피, 디저트</div>
+                    <div class="restaurant-note">오션뷰, 리모델링 후 더 예뻐짐</div>
+                </div>
+                <span class="restaurant-badge hot">🔥 2025</span>
+            </div>
+            
+            <div class="restaurant-card">
+                <div class="restaurant-main">
+                    <div class="restaurant-name">카페 더라이트</div>
+                    <div class="restaurant-menu">성산 · 커피, 디저트</div>
+                    <div class="restaurant-note">성산일출봉 근처, 풍경 맛집</div>
+                </div>
+                <span class="restaurant-badge hot">🔥 2025</span>
+            </div>
+            
+            <div class="restaurant-card">
+                <div class="restaurant-main">
+                    <div class="restaurant-name">에그타르트 카페</div>
+                    <div class="restaurant-menu">성산 · 에그타르트</div>
+                    <div class="restaurant-note">블루리본, 돌담뷰 (노키즈존)</div>
+                </div>
+                <span class="restaurant-badge hot">🔥 2025</span>
+            </div>
+        </section>
+        
+        <!-- 기념품 섹션 -->
+        <section id="gift" class="tab-content">
+            <h2 class="section-title"><span class="icon">🎁</span> 기념품</h2>
+            <div class="section-header">
+                <h3>인기 TOP</h3>
+                <span>필수 구매</span>
+            </div>
+            
+            <div class="gift-card">
+                <div class="gift-category">🔥 인기 TOP</div>
+                <div class="gift-name">제주 마음샌드</div>
+                <div class="gift-details">
+                    <span class="gift-price">16,000원 (10개)</span>
+                    <span class="gift-location">📍 제주공항 파리바게뜨</span>
+                </div>
+                <div class="gift-tip">💡 앱 예약 필수! ID당 3개 한정, 유통기한 10~14일</div>
+            </div>
+            
+            <div class="gift-card">
+                <div class="gift-category">🔥 인기 TOP</div>
+                <div class="gift-name">제주 바솔트 돌빵</div>
+                <div class="gift-details">
+                    <span class="gift-price">12,000원 (5개)</span>
+                    <span class="gift-location">📍 제주시 가령골3길 6 (공항 10분)</span>
+                </div>
+                <div class="gift-tip">💡 국무총리상 수상, 현무암 비주얼, 녹차/한라봉/땅콩맛</div>
+            </div>
+            
+            <div class="gift-card">
+                <div class="gift-category">🔥 인기 TOP</div>
+                <div class="gift-name">효은양갱 (한라봉)</div>
+                <div class="gift-details">
+                    <span class="gift-price">~10,000원</span>
+                    <span class="gift-location">📍 서귀포시 안덕면 (산방산 근처)</span>
+                </div>
+                <div class="gift-tip">💡 하루 200개 한정! 수제 한라봉 양갱</div>
+            </div>
+            
+            <div class="section-header">
+                <h3>제주 한정 베이커리</h3>
+            </div>
+            
+            <div class="gift-card">
+                <div class="gift-category">🥖 베이커리</div>
+                <div class="gift-name">코시롱 보리빵/쑥빵</div>
+                <div class="gift-details">
+                    <span class="gift-price">900~2,500원</span>
+                    <span class="gift-location">📍 제주시 번영로 550 (공항 20분)</span>
+                </div>
+                <div class="gift-tip">💡 무첨가, 담백한 맛, 어른 선물 최고</div>
+            </div>
+            
+            <div class="gift-card">
+                <div class="gift-category">🥖 베이커리</div>
+                <div class="gift-name">애월샌드 (한라봉크림)</div>
+                <div class="gift-details">
+                    <span class="gift-price">~2,000원/개</span>
+                    <span class="gift-location">📍 애월빵공장</span>
+                </div>
+                <div class="gift-tip">💡 프랑스 AOP버터 쿠키 + 한라봉크림</div>
+            </div>
+            
+            <div class="section-header">
+                <h3>오설록 한정</h3>
+                <span>현장만!</span>
+            </div>
+            
+            <div class="gift-card">
+                <div class="gift-category">🍵 오설록</div>
+                <div class="gift-name">바훔쿠헨</div>
+                <div class="gift-details">
+                    <span class="gift-price">~8,000원</span>
+                    <span class="gift-location">📍 오설록 티뮤지엄</span>
+                </div>
+                <div class="gift-tip">💡 티뮤지엄에서만 구매 가능! 서울 매장 X</div>
+            </div>
+            
+            <div class="gift-card">
+                <div class="gift-category">🍵 오설록</div>
+                <div class="gift-name">녹차 스프레드</div>
+                <div class="gift-details">
+                    <span class="gift-price">~15,000원</span>
+                    <span class="gift-location">📍 오설록 티뮤지엄</span>
+                </div>
+                <div class="gift-tip">💡 빵/아이스크림 토핑용</div>
+            </div>
+            
+            <div class="section-header">
+                <h3>동료 선물</h3>
+                <span>소포장</span>
+            </div>
+            
+            <div class="gift-card">
+                <div class="gift-category">💼 소포장</div>
+                <div class="gift-name">우도땅콩찰떡파이</div>
+                <div class="gift-details">
+                    <span class="gift-price">5,000원 (4개)</span>
+                    <span class="gift-location">📍 공항/기념품샵</span>
+                </div>
+                <div class="gift-tip">💡 초코+땅콩, 호불호 없음</div>
+            </div>
+            
+            <div class="gift-card">
+                <div class="gift-category">💼 소포장</div>
+                <div class="gift-name">감귤과즐 (신효)</div>
+                <div class="gift-details">
+                    <span class="gift-price">~8,000원</span>
+                    <span class="gift-location">📍 기념품샵/마트</span>
+                </div>
+                <div class="gift-tip">💡 스테디셀러! 호불호 없음</div>
+            </div>
+            
+            <div class="section-header">
+                <h3>애주가용</h3>
+            </div>
+            
+            <div class="gift-card">
+                <div class="gift-category">🍺 주류</div>
+                <div class="gift-name">제주위트에일 3개 세트</div>
+                <div class="gift-details">
+                    <span class="gift-price">13,000원</span>
+                    <span class="gift-location">📍 공항 12,13번 게이트 편의점</span>
+                </div>
+                <div class="gift-tip">💡 제주에서만! 12,13번 게이트 앞에서만 판매</div>
+            </div>
+            
+            <div class="gift-card">
+                <div class="gift-category">🍺 주류</div>
+                <div class="gift-name">한라산 미니어처 세트</div>
+                <div class="gift-details">
+                    <span class="gift-price">~5,000원 (2병)</span>
+                    <span class="gift-location">📍 편의점/마트</span>
+                </div>
+                <div class="gift-tip">💡 귀여운 사이즈, 부담없는 선물</div>
+            </div>
+            
+            <div class="tip-box">
+                <h4>구매 꿀팁</h4>
+                <ul>
+                    <li>마음샌드 — 파리바게뜨 앱에서 3일 전 예약 필수!</li>
+                    <li>바솔트 — 공항 10분, 마지막 날 아침에 경유</li>
+                    <li>효은양갱 — 산방산 근처, 오설록 가는 길에 경유</li>
+                    <li>오설록 한정 — 서울 매장에서 안 팔아요!</li>
+                    <li>제주위트에일 — 12,13번 게이트 앞에서만 판매</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- 추천장소 섹션 -->
+        <section id="spare" class="tab-content">
+            <h2 class="section-title"><span class="icon">📍</span> 추천장소</h2>
+            <div class="section-header">
+                <h3>중문</h3>
+                <span>21일</span>
+            </div>
+            
+            <div class="spot-card">
+                <div class="spot-icon nature">🌊</div>
+                <div class="spot-info">
+                    <h4>천제연폭포</h4>
+                    <p>3단 폭포, 칠선녀 다리</p>
+                </div>
+                <span class="spot-time">30분</span>
+            </div>
+            
+            <div class="spot-card">
+                <div class="spot-icon nature">🪨</div>
+                <div class="spot-info">
+                    <h4>대포 주상절리대</h4>
+                    <p>천연기념물, 바다+용암 절벽</p>
+                </div>
+                <span class="spot-time">20분</span>
+            </div>
+            
+            <div class="spot-card">
+                <div class="spot-icon cafe">☕</div>
+                <div class="spot-info">
+                    <h4>카페 휴일로</h4>
+                    <p>오션뷰 끝판왕, 물멍 맛집</p>
+                </div>
+                <span class="spot-time">1시간</span>
+            </div>
+            
+            <div class="spot-card">
+                <div class="spot-icon cafe">☕</div>
+                <div class="spot-info">
+                    <h4>카페 더클리프</h4>
+                    <p>바다 절벽뷰, 야간도 운영</p>
+                </div>
+                <span class="spot-time">1시간</span>
+            </div>
+            
+            <div class="spot-card">
+                <div class="spot-icon museum">🧸</div>
+                <div class="spot-info">
+                    <h4>테디베어뮤지엄</h4>
+                    <p>가족단위 인기, 포토존 많음</p>
+                </div>
+                <span class="spot-time">1시간</span>
+            </div>
+            
+            <div class="section-header">
+                <h3>성산 / 동부</h3>
+                <span>22~23일</span>
+            </div>
+            
+            <div class="spot-card">
+                <div class="spot-icon nature">🌄</div>
+                <div class="spot-info">
+                    <h4>광치기해변</h4>
+                    <p>용암지질+성산일출봉 배경 사진명소</p>
+                </div>
+                <span class="spot-time">30분</span>
+            </div>
+            
+            <div class="spot-card">
+                <div class="spot-icon museum">🎨</div>
+                <div class="spot-info">
+                    <h4>빛의벙커</h4>
+                    <p>미디어아트 전시관 (통신 벙커 개조)</p>
+                </div>
+                <span class="spot-time">1시간</span>
+            </div>
+            
+            <div class="spot-card">
+                <div class="spot-icon museum">🐠</div>
+                <div class="spot-info">
+                    <h4>아쿠아플라넷 제주</h4>
+                    <p>국내 최대 수족관, 수중쇼</p>
+                </div>
+                <span class="spot-time">2시간</span>
+            </div>
+            
+            <div class="spot-card">
+                <div class="spot-icon activity">🚗</div>
+                <div class="spot-info">
+                    <h4>종달리 해안도로</h4>
+                    <p>우도+성산일출봉 드라이브 코스</p>
+                </div>
+                <span class="spot-time">30분</span>
+            </div>
+            
+            <div class="spot-card">
+                <div class="spot-icon beach">🌅</div>
+                <div class="spot-info">
+                    <h4>오조포구</h4>
+                    <p>웰컴투 삼달리 촬영지, 노을명소</p>
+                </div>
+                <span class="spot-time">30분</span>
+            </div>
+            
+            <div class="spot-card">
+                <div class="spot-icon cafe">☕</div>
+                <div class="spot-info">
+                    <h4>카페 도렐</h4>
+                    <p>성산일출봉 5분거리, 땅콩라떼</p>
+                </div>
+                <span class="spot-time">1시간</span>
+            </div>
+            
+            <div class="spot-card">
+                <div class="spot-icon activity">🎠</div>
+                <div class="spot-info">
+                    <h4>드르쿰다 제주</h4>
+                    <p>포토존+카트체험, 야경명소</p>
+                </div>
+                <span class="spot-time">1~2시간</span>
+            </div>
+            
+            <div class="section-header">
+                <h3>함덕 / 북부</h3>
+                <span>이동 중</span>
+            </div>
+            
+            <div class="spot-card">
+                <div class="spot-icon beach">🏖️</div>
+                <div class="spot-info">
+                    <h4>함덕해수욕장</h4>
+                    <p>에메랄드빛 해변, 서우봉 산책</p>
+                </div>
+                <span class="spot-time">1시간</span>
+            </div>
+            
+            <div class="spot-card">
+                <div class="spot-icon nature">🌲</div>
+                <div class="spot-info">
+                    <h4>비자림</h4>
+                    <p>천년 비자나무숲 산책</p>
+                </div>
+                <span class="spot-time">1시간</span>
+            </div>
+            
+            <div class="spot-card">
+                <div class="spot-icon nature">🌿</div>
+                <div class="spot-info">
+                    <h4>사려니숲길</h4>
+                    <p>삼나무 숲길 트레킹</p>
+                </div>
+                <span class="spot-time">1~2시간</span>
+            </div>
+            
+            <div class="spot-card">
+                <div class="spot-icon museum">🎨</div>
+                <div class="spot-info">
+                    <h4>아르떼뮤지엄</h4>
+                    <p>몰입형 미디어아트 전시</p>
+                </div>
+                <span class="spot-time">1시간</span>
+            </div>
+        </section>
+        
+    </main>
+    </div>
+
+    <!-- 플로팅 위로가기 버튼 -->
+    <a href="#top" class="floating-top-btn">
+        <svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+    </a>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+        <svg class="tangerine tangerine-svg" viewBox="0 0 100 100" fill="none">
+            <circle cx="50" cy="55" r="40" fill="#FF8C42"/>
+            <ellipse cx="44" cy="50" rx="28" ry="22" fill="#FFB366" opacity="0.3"/>
+            <circle cx="38" cy="45" r="5" fill="#FFCC80" opacity="0.5"/>
+            <path d="M50 15 Q48 7 54 9 Q59 11 57 18" stroke="#558b2f" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <ellipse cx="56" cy="12" rx="10" ry="5" fill="#7cb342" transform="rotate(25 56 12)"/>
+            <!-- 눈 -->
+            <circle cx="40" cy="52" r="3" fill="#5D4037"/>
+            <circle cx="60" cy="52" r="3" fill="#5D4037"/>
+            <circle cx="41" cy="51" r="1" fill="white"/>
+            <circle cx="61" cy="51" r="1" fill="white"/>
+            <!-- 입 -->
+            <path d="M45 62 Q50 67 55 62" stroke="#5D4037" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+    </footer>
+
+</body>
+</html>
