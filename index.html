@@ -71,18 +71,62 @@
             margin-bottom: 20px;
         }
 
-        /* ========== 플로팅 위로가기 버튼 ========== */
+        /* ========== 플로팅 버튼 ========== */
+        .floating-btns {
+            position: fixed;
+            bottom: 30px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 99999;
+        }
+        
+        .floating-day-group {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            padding: 4px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        
+        .floating-day-btn {
+            width: 24px;
+            height: 22px;
+            background: transparent;
+            border: none;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.55rem;
+            font-weight: 600;
+            color: #888;
+            text-align: center;
+            line-height: 22px;
+            display: block;
+        }
+        
+        .floating-day-btn.active {
+            background: #ff6b35;
+            color: white;
+        }
+        
+        .floating-day-btn:active {
+            transform: scale(0.95);
+        }
+        
         .floating-top-btn {
-            position: fixed !important;
-            bottom: 30px !important;
-            right: 20px !important;
-            width: 50px;
-            height: 50px;
+            width: 38px;
+            height: 38px;
             background: #ff6b35 !important;
             border: none;
             border-radius: 50%;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            z-index: 99999 !important;
+            box-shadow: 0 3px 10px rgba(255,107,53,0.3);
             display: flex !important;
             align-items: center;
             justify-content: center;
@@ -94,8 +138,8 @@
         }
         
         .floating-top-btn svg {
-            width: 24px;
-            height: 24px;
+            width: 18px;
+            height: 18px;
             fill: white;
         }
 
@@ -432,57 +476,48 @@
         /* ========== 기념품 ========== */
         .gift-card {
             background: white;
-            border-radius: 8px;
-            padding: 10px 12px;
-            margin-bottom: 6px;
-            border-left: 3px solid #ff6b35;
+            border-radius: 10px;
+            padding: 12px 14px;
+            margin-bottom: 10px;
             display: flex;
-            flex-wrap: wrap;
             align-items: center;
-            gap: 6px 12px;
+            gap: 12px;
         }
         
         .gift-category {
-            font-size: 0.65rem;
-            font-weight: 600;
-            color: #ff6b35;
-            min-width: 70px;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+        
+        .gift-content {
+            flex: 1;
+        }
+        
+        .gift-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
         .gift-name {
             font-size: 0.9rem;
             font-weight: 600;
-            flex: 1;
-            min-width: 120px;
-        }
-        
-        .gift-details {
-            display: flex;
-            gap: 8px;
-            font-size: 0.75rem;
-            align-items: center;
-        }
-        
-        .gift-price {
-            color: #ff6b35;
-            font-weight: 600;
-            white-space: nowrap;
         }
         
         .gift-location {
-            color: #888;
             font-size: 0.7rem;
+            color: #888;
         }
         
         .gift-tip {
-            width: 100%;
-            font-size: 0.68rem;
-            background: #fff8f5;
-            border: 1px solid #ffe4d9;
-            padding: 5px 10px;
-            border-radius: 6px;
-            color: #c2410c;
-            margin-top: 4px;
+            font-size: 0.7rem;
+            color: #999;
+        }
+        
+        .gift-price {
+            font-size: 0.75rem;
+            color: #ff6b35;
+            font-weight: 600;
         }
 
         /* ========== 추천장소 ========== */
@@ -645,7 +680,7 @@
             <h2 class="section-title"><span class="icon">📅</span> 일정</h2>
             
             <!-- Day 1 -->
-            <section class="day-section">
+            <section class="day-section" id="day21">
                 <div class="day-header">
                     <div class="day-num">21</div>
                     <div class="day-info">
@@ -735,7 +770,7 @@
             </section>
             
             <!-- Day 2 -->
-            <section class="day-section">
+            <section class="day-section" id="day22">
                 <div class="day-header">
                     <div class="day-num">22</div>
                     <div class="day-info">
@@ -847,7 +882,7 @@
             </section>
             
             <!-- Day 3 -->
-            <section class="day-section">
+            <section class="day-section" id="day23">
                 <div class="day-header">
                     <div class="day-num">23</div>
                     <div class="day-info">
@@ -968,7 +1003,7 @@
             </section>
             
             <!-- Day 4 -->
-            <section class="day-section">
+            <section class="day-section" id="day24">
                 <div class="day-header">
                     <div class="day-num">24</div>
                     <div class="day-info">
@@ -1268,33 +1303,27 @@
             </div>
             
             <div class="gift-card">
-                <div class="gift-category">🔥 인기 TOP</div>
-                <div class="gift-name">제주 마음샌드</div>
-                <div class="gift-details">
-                    <span class="gift-price">16,000원 (10개)</span>
-                    <span class="gift-location">📍 제주공항 파리바게뜨 (3곳)</span>
+                <div class="gift-category">🔥</div>
+                <div class="gift-content">
+                    <div class="gift-row"><span class="gift-name">제주 마음샌드</span><span class="gift-location">📍 제주공항 파리바게뜨</span></div>
+                    <div class="gift-row"><span class="gift-tip">파바 앱 예약 필수! 3일 전~, ID당 3박스</span><span class="gift-price">16,000원</span></div>
                 </div>
-                <div class="gift-tip">💡 파바 앱 예약 필수! 3일 전~, ID당 3박스, 유통기한 14일</div>
             </div>
             
             <div class="gift-card">
-                <div class="gift-category">🔥 인기 TOP</div>
-                <div class="gift-name">제주 바솔트 돌빵</div>
-                <div class="gift-details">
-                    <span class="gift-price">12,000원 (5개)</span>
-                    <span class="gift-location">📍 제주시 가령골3길 6 (공항 10분)</span>
+                <div class="gift-category">🔥</div>
+                <div class="gift-content">
+                    <div class="gift-row"><span class="gift-name">제주 바솔트 돌빵</span><span class="gift-location">📍 공항 10분</span></div>
+                    <div class="gift-row"><span class="gift-tip">국무총리상, 현무암 비주얼</span><span class="gift-price">12,000원</span></div>
                 </div>
-                <div class="gift-tip">💡 국무총리상 수상, 현무암 비주얼, 녹차/한라봉/땅콩맛</div>
             </div>
             
             <div class="gift-card">
-                <div class="gift-category">🔥 인기 TOP</div>
-                <div class="gift-name">효은양갱 (한라봉)</div>
-                <div class="gift-details">
-                    <span class="gift-price">6,000원</span>
-                    <span class="gift-location">📍 서귀포시 안덕면 (산방산 근처)</span>
+                <div class="gift-category">🔥</div>
+                <div class="gift-content">
+                    <div class="gift-row"><span class="gift-name">효은양갱 (한라봉)</span><span class="gift-location">📍 산방산 근처</span></div>
+                    <div class="gift-row"><span class="gift-tip">수제 한라봉 양갱, 10:00~18:00</span><span class="gift-price">6,000원</span></div>
                 </div>
-                <div class="gift-tip">💡 수제 한라봉 양갱, 매일 10:00~18:00</div>
             </div>
             
             <div class="section-header">
@@ -1302,23 +1331,19 @@
             </div>
             
             <div class="gift-card">
-                <div class="gift-category">🥖 베이커리</div>
-                <div class="gift-name">코시롱 보리빵/쑥빵</div>
-                <div class="gift-details">
-                    <span class="gift-price">900~2,500원</span>
-                    <span class="gift-location">📍 제주시 번영로 550 (공항 20분)</span>
+                <div class="gift-category">🥖</div>
+                <div class="gift-content">
+                    <div class="gift-row"><span class="gift-name">코시롱 보리빵/쑥빵</span><span class="gift-location">📍 공항 20분</span></div>
+                    <div class="gift-row"><span class="gift-tip">무첨가, 담백한 맛, 어른 선물</span><span class="gift-price">900~2,500원</span></div>
                 </div>
-                <div class="gift-tip">💡 무첨가, 담백한 맛, 어른 선물 최고</div>
             </div>
             
             <div class="gift-card">
-                <div class="gift-category">🥖 베이커리</div>
-                <div class="gift-name">애월샌드 (한라봉크림)</div>
-                <div class="gift-details">
-                    <span class="gift-price">~2,000원/개</span>
-                    <span class="gift-location">📍 애월빵공장</span>
+                <div class="gift-category">🥖</div>
+                <div class="gift-content">
+                    <div class="gift-row"><span class="gift-name">애월샌드 (한라봉크림)</span><span class="gift-location">📍 애월빵공장</span></div>
+                    <div class="gift-row"><span class="gift-tip">AOP버터 쿠키 + 한라봉크림</span><span class="gift-price">~2,000원/개</span></div>
                 </div>
-                <div class="gift-tip">💡 프랑스 AOP버터 쿠키 + 한라봉크림</div>
             </div>
             
             <div class="section-header">
@@ -1327,23 +1352,19 @@
             </div>
             
             <div class="gift-card">
-                <div class="gift-category">🍡 떡</div>
-                <div class="gift-name">여진떡집 오메기떡</div>
-                <div class="gift-details">
-                    <span class="gift-price">~1,500원/개</span>
-                    <span class="gift-location">📍 동문시장 내</span>
+                <div class="gift-category">🍡</div>
+                <div class="gift-content">
+                    <div class="gift-row"><span class="gift-name">여진떡집 오메기떡</span><span class="gift-location">📍 동문시장</span></div>
+                    <div class="gift-row"><span class="gift-tip">귤맛 인기! 시식 후 구매</span><span class="gift-price">~1,500원/개</span></div>
                 </div>
-                <div class="gift-tip">💡 귤맛 오메기떡 인기! 시식 후해서 맛보고 구매</div>
             </div>
             
             <div class="gift-card">
-                <div class="gift-category">🍡 떡</div>
-                <div class="gift-name">제라헌 크림떡</div>
-                <div class="gift-details">
-                    <span class="gift-price">~15,000원 (8개)</span>
-                    <span class="gift-location">📍 제라헌 매장 / 온라인</span>
+                <div class="gift-category">🍡</div>
+                <div class="gift-content">
+                    <div class="gift-row"><span class="gift-name">제라헌 크림떡</span><span class="gift-location">📍 동문시장</span></div>
+                    <div class="gift-row"><span class="gift-tip">우유/녹차/땅콩, 아이스떡으로도</span><span class="gift-price">~15,000원</span></div>
                 </div>
-                <div class="gift-tip">💡 2025 인기템! 우유/녹차/땅콩맛, 냉동 아이스떡으로</div>
             </div>
             
             <div class="section-header">
@@ -1351,23 +1372,19 @@
             </div>
             
             <div class="gift-card">
-                <div class="gift-category">🎴 굿즈</div>
-                <div class="gift-name">제주화투</div>
-                <div class="gift-details">
-                    <span class="gift-price">~10,000원</span>
-                    <span class="gift-location">📍 동문시장/기념품샵</span>
+                <div class="gift-category">🎴</div>
+                <div class="gift-content">
+                    <div class="gift-row"><span class="gift-name">제주화투</span><span class="gift-location">📍 동문시장/기념품샵</span></div>
+                    <div class="gift-row"><span class="gift-tip">흑돼지, 해녀 등 제주 버전</span><span class="gift-price">~10,000원</span></div>
                 </div>
-                <div class="gift-tip">💡 멧돼지→흑돼지, 우산남자→해녀로! 설명서 포함</div>
             </div>
             
             <div class="gift-card">
-                <div class="gift-category">🎴 굿즈</div>
-                <div class="gift-name">한라봉 종이가습기</div>
-                <div class="gift-details">
-                    <span class="gift-price">~8,000원</span>
-                    <span class="gift-location">📍 기념품샵</span>
+                <div class="gift-category">🎴</div>
+                <div class="gift-content">
+                    <div class="gift-row"><span class="gift-name">한라봉 종이가습기</span><span class="gift-location">📍 기념품샵</span></div>
+                    <div class="gift-row"><span class="gift-tip">전기 필요 없음, 물에 올려두기만</span><span class="gift-price">~8,000원</span></div>
                 </div>
-                <div class="gift-tip">💡 전기 필요 없음! 물 위에 올려두기만</div>
             </div>
             
             <div class="section-header">
@@ -1376,23 +1393,19 @@
             </div>
             
             <div class="gift-card">
-                <div class="gift-category">🍵 오설록</div>
-                <div class="gift-name">바훔쿠헨</div>
-                <div class="gift-details">
-                    <span class="gift-price">~8,000원</span>
-                    <span class="gift-location">📍 오설록 티뮤지엄</span>
+                <div class="gift-category">🍵</div>
+                <div class="gift-content">
+                    <div class="gift-row"><span class="gift-name">바훔쿠헨</span><span class="gift-location">📍 오설록 티뮤지엄</span></div>
+                    <div class="gift-row"><span class="gift-tip">현장 한정! 롤케이크+녹차아이스크림</span><span class="gift-price">~8,000원</span></div>
                 </div>
-                <div class="gift-tip">💡 티뮤지엄 현장 한정! 롤케이크+녹차아이스크림</div>
             </div>
             
             <div class="gift-card">
-                <div class="gift-category">🍵 오설록</div>
-                <div class="gift-name">말차 파베 샌드</div>
-                <div class="gift-details">
-                    <span class="gift-price">~12,000원</span>
-                    <span class="gift-location">📍 오설록 티뮤지엄</span>
+                <div class="gift-category">🍵</div>
+                <div class="gift-content">
+                    <div class="gift-row"><span class="gift-name">말차 파베 샌드</span><span class="gift-location">📍 오설록 티뮤지엄</span></div>
+                    <div class="gift-row"><span class="gift-tip">리뉴얼 후 인기템! 말차+초콜릿</span><span class="gift-price">~12,000원</span></div>
                 </div>
-                <div class="gift-tip">💡 티뮤지엄 리뉴얼 후 인기템! 말차비스킷+초콜릿</div>
             </div>
             
             <div class="section-header">
@@ -1401,23 +1414,19 @@
             </div>
             
             <div class="gift-card">
-                <div class="gift-category">💼 소포장</div>
-                <div class="gift-name">돌하르방 과자</div>
-                <div class="gift-details">
-                    <span class="gift-price">~5,000원</span>
-                    <span class="gift-location">📍 공항/기념품샵</span>
+                <div class="gift-category">💼</div>
+                <div class="gift-content">
+                    <div class="gift-row"><span class="gift-name">돌하르방 과자</span><span class="gift-location">📍 공항/기념품샵</span></div>
+                    <div class="gift-row"><span class="gift-tip">앙금/크림 속, 귀여운 모양</span><span class="gift-price">~5,000원</span></div>
                 </div>
-                <div class="gift-tip">💡 앙금/크림 속, 귀여운 모양, 동료 선물용</div>
             </div>
             
             <div class="gift-card">
-                <div class="gift-category">💼 소포장</div>
-                <div class="gift-name">감귤과즐 (신효)</div>
-                <div class="gift-details">
-                    <span class="gift-price">~8,000원</span>
-                    <span class="gift-location">📍 기념품샵/마트</span>
+                <div class="gift-category">💼</div>
+                <div class="gift-content">
+                    <div class="gift-row"><span class="gift-name">감귤과즐 (신효)</span><span class="gift-location">📍 기념품샵/마트</span></div>
+                    <div class="gift-row"><span class="gift-tip">스테디셀러! 호불호 없음</span><span class="gift-price">~8,000원</span></div>
                 </div>
-                <div class="gift-tip">💡 스테디셀러! 호불호 없음</div>
             </div>
             
             <div class="section-header">
@@ -1425,23 +1434,19 @@
             </div>
             
             <div class="gift-card">
-                <div class="gift-category">🍺 주류</div>
-                <div class="gift-name">한라산 미니어처 세트</div>
-                <div class="gift-details">
-                    <span class="gift-price">~5,000원 (2병)</span>
-                    <span class="gift-location">📍 편의점/마트</span>
+                <div class="gift-category">🍺</div>
+                <div class="gift-content">
+                    <div class="gift-row"><span class="gift-name">한라산 미니어처 세트</span><span class="gift-location">📍 편의점/마트</span></div>
+                    <div class="gift-row"><span class="gift-tip">귀여운 사이즈, 부담없는 선물</span><span class="gift-price">~5,000원</span></div>
                 </div>
-                <div class="gift-tip">💡 귀여운 사이즈, 부담없는 선물</div>
             </div>
             
             <div class="gift-card">
-                <div class="gift-category">🍺 주류</div>
-                <div class="gift-name">제주 막걸리 세트</div>
-                <div class="gift-details">
-                    <span class="gift-price">~15,000원 (3종)</span>
-                    <span class="gift-location">📍 동문시장/마트</span>
+                <div class="gift-category">🍺</div>
+                <div class="gift-content">
+                    <div class="gift-row"><span class="gift-name">제주 막걸리 세트</span><span class="gift-location">📍 동문시장/마트</span></div>
+                    <div class="gift-row"><span class="gift-tip">감귤/땅콩/청보리 3종</span><span class="gift-price">~15,000원</span></div>
                 </div>
-                <div class="gift-tip">💡 감귤/땅콩/청보리 3종, 술 좋아하는 친구에게</div>
             </div>
             
             <div class="tip-box">
@@ -1623,10 +1628,17 @@
     </main>
     </div>
 
-    <!-- 플로팅 위로가기 버튼 -->
-    <a href="#top" class="floating-top-btn">
-        <svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
-    </a>
+    <!-- 플로팅 버튼 -->
+    <div class="floating-btns">
+        <div class="floating-day-group">
+            <a href="#day21" class="floating-day-btn">21</a>
+            <a href="#day22" class="floating-day-btn">22</a>
+            <a href="#day23" class="floating-day-btn">23</a>
+        </div>
+        <a href="#top" class="floating-top-btn">
+            <svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+        </a>
+    </div>
 
     <!-- 푸터 -->
     <footer class="footer">
