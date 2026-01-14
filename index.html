@@ -432,48 +432,57 @@
         /* ========== 기념품 ========== */
         .gift-card {
             background: white;
-            border-radius: 12px;
-            padding: 15px;
-            margin-bottom: 8px;
+            border-radius: 8px;
+            padding: 10px 12px;
+            margin-bottom: 6px;
             border-left: 3px solid #ff6b35;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 6px 12px;
         }
         
         .gift-category {
-            font-size: 0.6rem;
+            font-size: 0.65rem;
             font-weight: 600;
             color: #ff6b35;
-            margin-bottom: 5px;
+            min-width: 70px;
         }
         
         .gift-name {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 600;
-            margin-bottom: 6px;
+            flex: 1;
+            min-width: 120px;
         }
         
         .gift-details {
             display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
+            gap: 8px;
             font-size: 0.75rem;
+            align-items: center;
         }
         
         .gift-price {
             color: #ff6b35;
             font-weight: 600;
+            white-space: nowrap;
         }
         
         .gift-location {
-            color: #999;
+            color: #888;
+            font-size: 0.7rem;
         }
         
         .gift-tip {
-            font-size: 0.7rem;
-            background: #fffbeb;
-            padding: 6px 10px;
+            width: 100%;
+            font-size: 0.68rem;
+            background: #fff8f5;
+            border: 1px solid #ffe4d9;
+            padding: 5px 10px;
             border-radius: 6px;
-            color: #92400e;
-            margin-top: 8px;
+            color: #c2410c;
+            margin-top: 4px;
         }
 
         /* ========== 추천장소 ========== */
@@ -848,22 +857,99 @@
                 </div>
                 
                 <div class="timeline">
-                    <div class="timeline-item flow">
+                    <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-card">
-                            <h3><span class="time flexible">오전</span> 🌄 섭지코지 / 붉은오름</h3>
-                            <p>구경</p>
+                            <h3><span class="time">08:30</span> 🌄 섭지코지</h3>
+                            <span class="tag activity">1시간</span>
                         </div>
                     </div>
                     
-                    <div class="timeline-item flow">
+                    <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-card">
-                            <h3><span class="time flexible">이후</span> 🏝️ 우도</h3>
-                            <span class="tag warning">현장매표만</span>
+                            <h3><span class="time">09:30</span> 🌋 붉은오름</h3>
+                            <span class="tag activity">1시간</span>
                         </div>
                     </div>
-                    
+                </div>
+                
+                <!-- 플랜 A -->
+                <div style="background: #fff5f0; border-radius: 12px; padding: 16px; margin: 20px 0;">
+                    <h4 style="color: #ff6b35; margin-bottom: 12px; font-size: 0.95rem;">🅰️ 플랜 A: 우도</h4>
+                    <div class="timeline" style="margin: 0;">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-card">
+                                <h3><span class="time">10:30</span> 🚗 성산포항 이동</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-card">
+                                <h3><span class="time">11:00</span> ⛴️ 우도 행 탑승</h3>
+                                <span class="tag warning">현장매표만</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-card">
+                                <h3><span class="time flexible">12:00</span> 🍽️ 우도 점심</h3>
+                                <p>하하호호(버거) / 섬소나이(짬뽕) / 우도해광식당(칼국수)</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-card">
+                                <h3><span class="time flexible">~15:00</span> 🏝️ 우도 놀기</h3>
+                                <p>전동차 렌트 추천 / 검멀레해변 / 서빈백사</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-card">
+                                <h3><span class="time">15:30</span> ⛴️ 복귀</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 플랜 B -->
+                <div style="background: #f0f7ff; border-radius: 12px; padding: 16px; margin: 20px 0;">
+                    <h4 style="color: #1565c0; margin-bottom: 12px; font-size: 0.95rem;">🅱️ 플랜 B: 우도잠수함</h4>
+                    <div class="timeline" style="margin: 0;">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-card">
+                                <h3><span class="time flexible">11:00</span> 🍽️ 성산 점심</h3>
+                                <p>맛나식당(갈치조림) / 제주뚝배기 / 오조해녀의집(전복죽)</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-card">
+                                <h3><span class="time">13:00</span> 🚢 우도잠수함</h3>
+                                <span class="tag activity">1시간</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-card">
+                                <h3><span class="time flexible">14:30</span> 🎨 빛의벙커 / 아쿠아플라넷</h3>
+                                <p>실내 미디어아트 · 1월 추위 피하기 좋음</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-card">
+                                <h3><span class="time flexible">16:00</span> ☕ 카페</h3>
+                                <p>도렐 / 하얀집커피</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline">
                     <div class="timeline-item flow">
                         <div class="timeline-dot"></div>
                         <div class="timeline-card">
@@ -1038,6 +1124,70 @@
             </div>
             
             <div class="section-header">
+                <h3>23일 점심 - 우도</h3>
+                <span>플랜A 선택시</span>
+            </div>
+            
+            <div class="restaurant-card">
+                <div class="restaurant-main">
+                    <div class="restaurant-name">하하호호</div>
+                    <div class="restaurant-menu">수제버거, 땅콩쉐이크</div>
+                    <div class="restaurant-note">우도땅콩버거 · 바다뷰 · 내돈내산 후기 다수</div>
+                </div>
+                <span class="restaurant-badge hot">🔥 2025</span>
+            </div>
+            
+            <div class="restaurant-card">
+                <div class="restaurant-main">
+                    <div class="restaurant-name">섬소나이</div>
+                    <div class="restaurant-menu">톳짬뽕, 해물칼국수</div>
+                    <div class="restaurant-note">크림짬뽕 인기 · 우도 현지인 추천</div>
+                </div>
+                <span class="restaurant-badge hot">🔥 2025</span>
+            </div>
+            
+            <div class="restaurant-card">
+                <div class="restaurant-main">
+                    <div class="restaurant-name">우도해광식당</div>
+                    <div class="restaurant-menu">보말톳칼국수</div>
+                    <div class="restaurant-note">보말 듬뿍 · 도민도 인정</div>
+                </div>
+                <span class="restaurant-badge award">⭐ 4.8</span>
+            </div>
+            
+            <div class="section-header">
+                <h3>23일 점심 - 성산</h3>
+                <span>플랜B 선택시</span>
+            </div>
+            
+            <div class="restaurant-card">
+                <div class="restaurant-main">
+                    <div class="restaurant-name">맛나식당</div>
+                    <div class="restaurant-menu">갈치조림, 고등어조림</div>
+                    <div class="restaurant-note">08:30~14:30 · 웨이팅 있음 · 내돈내산 후기 多</div>
+                </div>
+                <span class="restaurant-badge hot">🔥 2025</span>
+            </div>
+            
+            <div class="restaurant-card">
+                <div class="restaurant-main">
+                    <div class="restaurant-name">제주뚝배기</div>
+                    <div class="restaurant-menu">전복해물뚝배기, 갈치조림</div>
+                    <div class="restaurant-note">06:40~ · 아침식사 가능 · 반려견OK</div>
+                </div>
+                <span class="restaurant-badge hot">🔥 2025</span>
+            </div>
+            
+            <div class="restaurant-card">
+                <div class="restaurant-main">
+                    <div class="restaurant-name">오조해녀의집</div>
+                    <div class="restaurant-menu">전복죽, 문어숙회</div>
+                    <div class="restaurant-note">07:00~ · 해녀 직접 운영 · 성산일출봉 3분</div>
+                </div>
+                <span class="restaurant-badge award">🏆 블루리본</span>
+            </div>
+            
+            <div class="section-header">
                 <h3>23일 저녁</h3>
                 <span>성산 / 우도</span>
             </div>
@@ -1122,9 +1272,9 @@
                 <div class="gift-name">제주 마음샌드</div>
                 <div class="gift-details">
                     <span class="gift-price">16,000원 (10개)</span>
-                    <span class="gift-location">📍 제주공항 파리바게뜨</span>
+                    <span class="gift-location">📍 제주공항 파리바게뜨 (3곳)</span>
                 </div>
-                <div class="gift-tip">💡 앱 예약 필수! ID당 3개 한정, 유통기한 10~14일</div>
+                <div class="gift-tip">💡 파바 앱 예약 필수! 3일 전~, ID당 3박스, 유통기한 14일</div>
             </div>
             
             <div class="gift-card">
@@ -1141,10 +1291,10 @@
                 <div class="gift-category">🔥 인기 TOP</div>
                 <div class="gift-name">효은양갱 (한라봉)</div>
                 <div class="gift-details">
-                    <span class="gift-price">~10,000원</span>
+                    <span class="gift-price">6,000원</span>
                     <span class="gift-location">📍 서귀포시 안덕면 (산방산 근처)</span>
                 </div>
-                <div class="gift-tip">💡 하루 200개 한정! 수제 한라봉 양갱</div>
+                <div class="gift-tip">💡 수제 한라봉 양갱, 매일 10:00~18:00</div>
             </div>
             
             <div class="section-header">
@@ -1172,6 +1322,55 @@
             </div>
             
             <div class="section-header">
+                <h3>동문시장 명물</h3>
+                <span>도민추천</span>
+            </div>
+            
+            <div class="gift-card">
+                <div class="gift-category">🍡 떡</div>
+                <div class="gift-name">여진떡집 오메기떡</div>
+                <div class="gift-details">
+                    <span class="gift-price">~1,500원/개</span>
+                    <span class="gift-location">📍 동문시장 내</span>
+                </div>
+                <div class="gift-tip">💡 귤맛 오메기떡 인기! 시식 후해서 맛보고 구매</div>
+            </div>
+            
+            <div class="gift-card">
+                <div class="gift-category">🍡 떡</div>
+                <div class="gift-name">제라헌 크림떡</div>
+                <div class="gift-details">
+                    <span class="gift-price">~15,000원 (8개)</span>
+                    <span class="gift-location">📍 제라헌 매장 / 온라인</span>
+                </div>
+                <div class="gift-tip">💡 2025 인기템! 우유/녹차/땅콩맛, 냉동 아이스떡으로</div>
+            </div>
+            
+            <div class="section-header">
+                <h3>이색 기념품</h3>
+            </div>
+            
+            <div class="gift-card">
+                <div class="gift-category">🎴 굿즈</div>
+                <div class="gift-name">제주화투</div>
+                <div class="gift-details">
+                    <span class="gift-price">~10,000원</span>
+                    <span class="gift-location">📍 동문시장/기념품샵</span>
+                </div>
+                <div class="gift-tip">💡 멧돼지→흑돼지, 우산남자→해녀로! 설명서 포함</div>
+            </div>
+            
+            <div class="gift-card">
+                <div class="gift-category">🎴 굿즈</div>
+                <div class="gift-name">한라봉 종이가습기</div>
+                <div class="gift-details">
+                    <span class="gift-price">~8,000원</span>
+                    <span class="gift-location">📍 기념품샵</span>
+                </div>
+                <div class="gift-tip">💡 전기 필요 없음! 물 위에 올려두기만</div>
+            </div>
+            
+            <div class="section-header">
                 <h3>오설록 한정</h3>
                 <span>현장만!</span>
             </div>
@@ -1183,17 +1382,17 @@
                     <span class="gift-price">~8,000원</span>
                     <span class="gift-location">📍 오설록 티뮤지엄</span>
                 </div>
-                <div class="gift-tip">💡 티뮤지엄에서만 구매 가능! 서울 매장 X</div>
+                <div class="gift-tip">💡 티뮤지엄 현장 한정! 롤케이크+녹차아이스크림</div>
             </div>
             
             <div class="gift-card">
                 <div class="gift-category">🍵 오설록</div>
-                <div class="gift-name">녹차 스프레드</div>
+                <div class="gift-name">말차 파베 샌드</div>
                 <div class="gift-details">
-                    <span class="gift-price">~15,000원</span>
+                    <span class="gift-price">~12,000원</span>
                     <span class="gift-location">📍 오설록 티뮤지엄</span>
                 </div>
-                <div class="gift-tip">💡 빵/아이스크림 토핑용</div>
+                <div class="gift-tip">💡 티뮤지엄 리뉴얼 후 인기템! 말차비스킷+초콜릿</div>
             </div>
             
             <div class="section-header">
@@ -1203,12 +1402,12 @@
             
             <div class="gift-card">
                 <div class="gift-category">💼 소포장</div>
-                <div class="gift-name">우도땅콩찰떡파이</div>
+                <div class="gift-name">돌하르방 과자</div>
                 <div class="gift-details">
-                    <span class="gift-price">5,000원 (4개)</span>
+                    <span class="gift-price">~5,000원</span>
                     <span class="gift-location">📍 공항/기념품샵</span>
                 </div>
-                <div class="gift-tip">💡 초코+땅콩, 호불호 없음</div>
+                <div class="gift-tip">💡 앙금/크림 속, 귀여운 모양, 동료 선물용</div>
             </div>
             
             <div class="gift-card">
@@ -1227,16 +1426,6 @@
             
             <div class="gift-card">
                 <div class="gift-category">🍺 주류</div>
-                <div class="gift-name">제주위트에일 3개 세트</div>
-                <div class="gift-details">
-                    <span class="gift-price">13,000원</span>
-                    <span class="gift-location">📍 공항 12,13번 게이트 편의점</span>
-                </div>
-                <div class="gift-tip">💡 제주에서만! 12,13번 게이트 앞에서만 판매</div>
-            </div>
-            
-            <div class="gift-card">
-                <div class="gift-category">🍺 주류</div>
                 <div class="gift-name">한라산 미니어처 세트</div>
                 <div class="gift-details">
                     <span class="gift-price">~5,000원 (2병)</span>
@@ -1245,14 +1434,25 @@
                 <div class="gift-tip">💡 귀여운 사이즈, 부담없는 선물</div>
             </div>
             
+            <div class="gift-card">
+                <div class="gift-category">🍺 주류</div>
+                <div class="gift-name">제주 막걸리 세트</div>
+                <div class="gift-details">
+                    <span class="gift-price">~15,000원 (3종)</span>
+                    <span class="gift-location">📍 동문시장/마트</span>
+                </div>
+                <div class="gift-tip">💡 감귤/땅콩/청보리 3종, 술 좋아하는 친구에게</div>
+            </div>
+            
             <div class="tip-box">
                 <h4>구매 꿀팁</h4>
                 <ul>
-                    <li>마음샌드 — 파리바게뜨 앱에서 3일 전 예약 필수!</li>
+                    <li>마음샌드 — 파바 앱에서 3일 전 예약! 픽업 17시까지, ID당 3박스</li>
+                    <li>마음샌드 픽업 — 렌트카하우스점(도착일) / 탑승점(출발일)</li>
                     <li>바솔트 — 공항 10분, 마지막 날 아침에 경유</li>
                     <li>효은양갱 — 산방산 근처, 오설록 가는 길에 경유</li>
-                    <li>오설록 한정 — 서울 매장에서 안 팔아요!</li>
-                    <li>제주위트에일 — 12,13번 게이트 앞에서만 판매</li>
+                    <li>제라헌 — 동문시장, 크림떡 시식 가능, 아이스떡으로 먹어도 굿</li>
+                    <li>오설록 — 바훔쿠헨, 말차파베샌드는 티뮤지엄 현장 한정!</li>
                 </ul>
             </div>
         </section>
