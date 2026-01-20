@@ -5,13 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>제주여행 2026</title>
     <script>
-        // 2026년 1월 23일 21:00 (한국시간 KST) 이후 페이지 숨김
-        const hideDate = new Date('2026-01-23T21:00:00+09:00');
+        // 2026년 1월 23일 16:00 (한국시간 KST) 이후 페이지 숨김
+        const hideDate = new Date('2026-01-23T16:00:00+09:00');
         const now = new Date();
 
         if (now >= hideDate) {
             document.addEventListener('DOMContentLoaded', function() {
-                document.body.innerHTML = '<div style="display:flex;flex-direction:column;justify-content:center;align-items:center;height:100vh;text-align:center;padding:20px;font-family:\'Noto Sans KR\',sans-serif;"><div style="font-size:3rem;margin-bottom:20px;">🍊</div><div style="font-size:1.5rem;font-weight:700;margin-bottom:10px;">여행이 끝났습니다</div><div style="font-size:0.9rem;color:#999;">이 페이지는 더 이상 사용할 수 없습니다.</div></div>';
+                // 네비게이션, 메인, 플로팅 버튼, 푸터 숨기기
+                const elementsToHide = [
+                    '.nav-container',
+                    '.main-wrapper',
+                    '.floating-btns',
+                    '.footer'
+                ];
+
+                elementsToHide.forEach(selector => {
+                    const element = document.querySelector(selector);
+                    if (element) element.style.display = 'none';
+                });
+
+                // 히어로 섹션 아래에 메시지 추가
+                const hero = document.querySelector('.hero');
+                if (hero) {
+                    const message = document.createElement('div');
+                    message.style.cssText = 'text-align:center;padding:30px 20px;font-size:0.95rem;color:#999;line-height:1.8;';
+                    message.innerHTML = '즐거운 제주여행 되셨나요?<br>모든 일정이 종료되었습니다. 🍊';
+                    hero.parentNode.insertBefore(message, hero.nextSibling);
+                }
             });
         }
     </script>
